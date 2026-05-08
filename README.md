@@ -3,7 +3,7 @@
   <p><strong>A Premium, High-Performance eCommerce Frontend built with Next.js</strong></p>
 
   <p>
-    <a href="https://rumantech-backend.onrender.com/api/v1">Backend API</a>
+    <a href="https://ruman-tech.vercel.app">Live Site</a>
     ·
     <a href="#features">Features</a>
     ·
