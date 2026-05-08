@@ -4,6 +4,8 @@ export type AuthUser = {
   id: string;
   name: string;
   email: string;
+  phone?: string | null;
+  profileImageUrl?: string | null;
   role: UserRole;
 };
 
@@ -23,4 +25,18 @@ export type AuthResponse = {
     user: AuthUser;
     accessToken: string;
   };
+};
+
+export type ForgotPasswordPayload = {
+  email: string;
+};
+
+export type ResetPasswordPayload = {
+  token: string;
+  newPassword: string;
+};
+
+export type ChangePasswordPayload = {
+  oldPassword: string;
+  newPassword: string;
 };
