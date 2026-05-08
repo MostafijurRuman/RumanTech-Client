@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Trash2 } from "lucide-react";
 import { ProtectedRoute } from "@/components/shared/protected-route";
 import { Button } from "@/components/ui/button";
+import { formatCurrency } from "@/modules/dashboard/utils/formatters";
 import { useCart, useRemoveCartItem, useUpdateCartQuantity } from "@/modules/cart/use-cart";
 
 export default function CartPage() {
@@ -23,7 +24,7 @@ export default function CartPage() {
               <div key={item.id} className="flex items-center justify-between gap-4 rounded-lg border bg-card p-4">
                 <div>
                   <Link href={`/products/${item.product.slug}`} className="font-semibold hover:text-primary">{item.product.name}</Link>
-                  <p className="mt-1 text-sm text-muted-foreground">${Number(item.product.price).toFixed(2)}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{formatCurrency(item.product.price)}</p>
                 </div>
                 <div className="flex items-center gap-2">
                   <input
@@ -44,7 +45,7 @@ export default function CartPage() {
             <h2 className="font-semibold">Summary</h2>
             <div className="mt-4 flex justify-between text-sm">
               <span>Subtotal</span>
-              <span>${total.toFixed(2)}</span>
+              <span>{formatCurrency(total)}</span>
             </div>
             <Button className="mt-5 w-full">Checkout</Button>
           </aside>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Heart, ShoppingCart, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { formatCurrency } from "@/modules/dashboard/utils/formatters";
 import type { Product } from "@/modules/products/types";
 
 export function ProductCard({
@@ -35,7 +36,7 @@ export function ProductCard({
         </Link>
         <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">{product.description}</p>
         <div className="mt-auto flex items-center justify-between pt-4">
-          <span className="font-semibold">${Number(product.price).toFixed(2)}</span>
+          <span className="font-semibold">{formatCurrency(product.price)}</span>
           <div className="flex gap-2">
             <Button size="icon" variant="outline" aria-label="Wishlist" onClick={() => onWishlist?.(product.id)}>
               <Heart />

@@ -7,6 +7,7 @@ import { useAddToCart } from "@/modules/cart/use-cart";
 import { useProduct, useProducts } from "@/modules/products/hooks/use-products";
 import { ProductCard } from "@/modules/products/components/product-card";
 import { useAddWishlist } from "@/modules/wishlist/use-wishlist";
+import { formatCurrency } from "@/modules/dashboard/utils/formatters";
 
 export function ProductDetails({ slug }: { slug: string }) {
   const product = useProduct(slug);
@@ -43,7 +44,7 @@ export function ProductDetails({ slug }: { slug: string }) {
             <Star className="size-4 fill-accent text-accent" />
             {item.avgRating.toFixed(1)} rating from {item.reviewCount} reviews
           </div>
-          <p className="mt-5 text-3xl font-semibold">${Number(item.price).toFixed(2)}</p>
+          <p className="mt-5 text-3xl font-semibold">{formatCurrency(item.price)}</p>
           <p className="mt-5 leading-7 text-muted-foreground">{item.description}</p>
           <div className="mt-6 flex gap-3">
             <Button onClick={() => cart.mutate({ productId: item.id, quantity: 1 })}>
